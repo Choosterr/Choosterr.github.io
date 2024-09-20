@@ -1,0 +1,24 @@
+
+
+
+/* Select by ID */
+#intro {
+    color: blue;
+  }
+  
+  /* Select by class */
+  .highlight {
+    background-color: yellow;
+  }
+  
+  /* Select by tag name */
+  div{
+    background-color: #0E2E6A
+}
+  h1,h2 {
+    color: #DEE8FE;
+  }
+  p {
+    color: white;
+    font-size: 16px;
+  }
