@@ -1,24 +1,98 @@
 
+  /* Select by class */
+  .container {
+    /*background-color: darkolivegreen;*/
+    font-size: 1rem;
+    font-family: "Urbanist", sans-serif;
 
+    margin: 20px auto;
+    padding: 30px;
+    max-width: 800px;
+    
+  }
 
-/* Select by ID */
-#intro {
-    color: blue;
+  .container-nav {
+    background-color: #154193;
+    font-size: 1.5rem;
+    font-family: "Urbanist", sans-serif;
+    margin: auto;
   }
   
-  /* Select by class */
-  .highlight {
-    background-color: yellow;
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items:center;
+    justify-content: center;
+    margin:auto;
+  }
+
+  .navbar ul{
+    display: flex;
+  }
+
+  .navbar ul li {
+    list-style-type: none;
+  }
+
+  .container-nav ul li {
+    padding: 10px;
+    margin: 0 10px;
+  }
+
+  .navbar a {
+    color: white;
+    background-color: #0E2E6A;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .navbar a:hover {
+    color: #0E2E6A;
+    background-color: #DEE8FE;
+    transition: 0.7s;
+  }
+
+  .container .navbar {
+    justify-content: space-between;
+  }
+
+  .container-list {
+    background-color: #154193;
+    font-size: 1.1rem;
+    font-family: "Urbanist", sans-serif;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+
+    border:2px solid #DEE8FE;
+    border-radius: 10px;
+  }
+
+  .container-list ul li {
+    color:white;
+    padding: 10px;
+    margin: 0 10px;
   }
   
   /* Select by tag name */
-  div{
-    background-color: #0E2E6A
+  body{
+    background-color: #0E2E6A;
+    font-family: "Urbanist", sans-serif;
 }
   h1,h2 {
+    letter-spacing: 2px;
     color: #DEE8FE;
+    margin-top: 3rem;
   }
-  p {
+  p, a {
     color: white;
     font-size: 16px;
+    font-weight: light;
+    text-indent: 30px;
+    
   }
+
