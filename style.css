@@ -1,7 +1,6 @@
 
   /* Select by class */
   .container {
-    /*background-color: darkolivegreen;*/
     font-size: 1rem;
     font-family: "Urbanist", sans-serif;
 
@@ -82,8 +81,9 @@
     background-color: #0E2E6A;
     font-family: "Urbanist", sans-serif;
     letter-spacing: 0.5px;
-}
-  h1,h2 {
+  }
+
+  h1,h2,h3 {
     letter-spacing: 2px;
     color: #DEE8FE;
     margin-top: 3rem;
@@ -96,14 +96,41 @@
     text-indent: 30px;
   }
 
-  .flexbox {
+  .flexboxHorizontal {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items:center;
-    justify-content: center;
-    margin:auto;
+    align-items:stretch;
+    justify-content: space-around;
+    margin: 1rem auto;
+
   }
+
+  .flexboxVertical {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: left;
+    justify-content:flex-start;
+    padding: 1rem;
+    margin: 1rem auto 2rem 2rem;
+
+    border:2px solid #DEE8FE;
+    border-radius: 10px;
+  }
+
+  .projectImg {
+    max-width: 400px;
+    border:2px solid #DEE8FE;
+    border-radius: 10px;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+
+  .projectImg:hover{
+  opacity: 1;
+  transition: 0.7s;
+}
 
   button {
     color: #0E2E6A;
