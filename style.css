@@ -6,13 +6,12 @@
     font-family: "Urbanist", sans-serif;
 
     margin: 20px auto;
-    padding: 30px;
+    padding: 30px 50px;
     max-width: 800px;
-    
   }
 
   .container-nav {
-    background-color: #154193;
+    background-color: #8a7c6a;
     font-size: 1.5rem;
     font-family: "Urbanist", sans-serif;
     margin: auto;
@@ -61,7 +60,7 @@
   }
 
   .container-list {
-    background-color: #154193;
+    background-color: #8a7c6a;
     font-size: 1.1rem;
     font-family: "Urbanist", sans-serif;
     margin: auto;
@@ -82,17 +81,18 @@
   body{
     background-color: #0E2E6A;
     font-family: "Urbanist", sans-serif;
+    letter-spacing: 0.5px;
 }
   h1,h2 {
     letter-spacing: 2px;
     color: #DEE8FE;
     margin-top: 3rem;
   }
-  p, a {
+
+  p, a, text {
     color: white;
     font-size: 16px;
     font-weight: light;
     text-indent: 30px;
-    
   }
 
