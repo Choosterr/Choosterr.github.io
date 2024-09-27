@@ -96,3 +96,30 @@
     text-indent: 30px;
   }
 
+  .flexbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items:center;
+    justify-content: center;
+    margin:auto;
+  }
+
+  button {
+    color: #0E2E6A;
+    background-color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    margin:1rem auto;
+  }
+
+  button:hover {
+    border: 5px solid #8a7c6a;
+    transition: 0.5s;
+  }
+

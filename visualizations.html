@@ -13,8 +13,8 @@
         <div class="navbar">
           <nav>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Visualizations</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="visualizations.html">Visualizations</a></li>
             </ul>
           </nav>
         </div>
@@ -45,18 +45,21 @@
         <text x="100" y="320"> Calgary</text>
         <rect x="200" y="400" width="110" height="50" fill="yellow"/> 
         <text x="100" y="420"> Edmonton</text>
-      
 
       </svg>
     </div>
 
-    <div class="container">      
+    <div class="container">  
+
       <main>
         <svg id="vis" width="800px" height="600px">
           <rect x="0" y="0" width="800" height="600" fill="white"/>
         </svg>
       </main>
       <script src="vis.js"></script>
+      <div class="flexbox">
+        <button type="randomize" id="randomize" onclick="randomize()">Generate Random Circles</button>    
+      </div>
     </div>
 
   </body>
