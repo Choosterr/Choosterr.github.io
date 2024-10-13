@@ -91,11 +91,18 @@
     margin-top: 3rem;
   }
 
-  p, a, text {
+  p, text {
     color: white;
     font-size: 16px;
     font-weight: light;
     text-indent: 30px;
+  }
+
+  a{
+    color: white;
+    font-size: 16px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
   }
 
   .flexboxHorizontal {
