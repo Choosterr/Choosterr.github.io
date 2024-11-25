@@ -6,7 +6,7 @@
 
     margin: 20px auto;
     padding: 30px 50px;
-    max-width: 800px;
+    max-width: 80%;
 
     border-bottom: 4px solid #DEE8FE;
   }
@@ -58,11 +58,6 @@
 
   .container .navbar {
     justify-content: space-between;
-  }
-
-  .vis {
-    background-color: white;
-    width: 50%;
   }
 
   .container-list {
@@ -164,3 +159,9 @@
     transition: 0.5s;
   }
 
+
+  .vis {
+    background-color: white;
+    width: 500px;
+    height: 500px;
+  }  

@@ -3,42 +3,93 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <script>
+        
+      const options = {
+         config: {
+           // Vega-Lite default configuration
+         },
+         init: (view) => {
+           // initialize tooltip handler
+           view.tooltip(new vegaTooltip.Handler().call);
+         },
+         view: {
+           // view constructor options
+           // remove the loader if you don't want to default to vega-datasets!
+           loader: vega.loader({
+             baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
+           }),
+           renderer: "canvas",
+         },
+       };
+       // register vega and vega-lite with the API
+       vl.register(vega, vegaLite, options);
+    </script>
+
     <link rel="stylesheet" href=./style.css>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">
     <title>Nathan Choo - 355 Final</title>
   </head>
   <body>
-        <header>
-          <div class="container-nav">
-            <div class="navbar">
-              <nav>
-                <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="visualizations.html">Visualizations</a></li>
-                </ul>
-              </nav>
-            </div>
+    <header>
+      <div class="container-nav">
+        <div class="navbar">
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="visualizations.html">Visualizations</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+        
+    <main>
+      <div class="container">        
+        <h1>IAT 355 Final Project</h1>
+        <h2>Worlds Champion Data</h2> 
+        <div class="flexboxHorizontal">
+          <div class="vis" id="view1">
           </div>
-        </header>
-        
-        <main>
-          <div class="container">         
-            <h1>IAT 355 Final Project</h1>
-    
-            <div class="flexboxHorizontal">
-              <div class="vis">
-
-              </div>
-              <div class="flexboxVertical">
-                <h3>IAT344: Interface Design</h3>  
-                <p> A translink bus interface to assist with navigation without the use of a mobile device</p>
-              </div>
-            </div>
-
-        </main>
-        
-        <footer>
-          <p>© 2024 My Webpage | IAT 355</p>
-        </footer>
+          <div class="flexboxVertical">
+            <h3>IAT344: Interface Design</h3>  
+            <p> A translink bus interface to assist with navigation without the use of a mobile device</p>
+          </div>
+        </div>
+      </div>
+      <div class="container">        
+        <h2>Are Newer Chapions Always Relevant?</h2> 
+        <div class="flexboxHorizontal">
+          <div class="vis" id="view2">
+          </div>
+          <div class="flexboxVertical">
+            <h3>IAT344: Interface Design</h3>  
+            <p> A translink bus interface to assist with navigation without the use of a mobile device</p>
+          </div>
+        </div>
+      </div>
+      <div class="container">        
+        <h2>How Much do Patch Notes Affect Champions Picked?</h2> 
+        <div class="flexboxHorizontal">
+          <div class="vis" id="view3">
+          </div>
+          <div class="flexboxVertical">
+            <h3>IAT344: Interface Design</h3>  
+            <p> A translink bus interface to assist with navigation without the use of a mobile device</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>© 2024 My Webpage | IAT 355</p>
+    </footer>
   </body>
 </html>
