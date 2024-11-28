@@ -4,6 +4,7 @@
 async function render() {
     // load data
     const videogames = await d3.csv("./dataset/videogames_wide.csv");
+    console.log(videogames);
   
     // Visual 1: Global sales by genre and platform
     const vlSpec1 = vl

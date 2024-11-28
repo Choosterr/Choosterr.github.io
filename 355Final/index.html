@@ -10,9 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">
 
     <script>
-        
       const options = {
          config: {
            // Vega-Lite default configuration
@@ -34,8 +36,6 @@
        vl.register(vega, vegaLite, options);
     </script>
 
-    <link rel="stylesheet" href=./style.css>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">
     <title>Nathan Choo - 355 Final</title>
   </head>
   <body>
@@ -57,11 +57,10 @@
         <h1>IAT 355 Final Project</h1>
         <h2>Worlds Champion Data</h2> 
         <div class="flexboxHorizontal">
-          <div class="vis" id="view1">
-          </div>
+          <div class="vis" id="view1"></div>
           <div class="flexboxVertical">
-            <h3>IAT344: Interface Design</h3>  
-            <p> A translink bus interface to assist with navigation without the use of a mobile device</p>
+            <h3>An Interactive Tool for Data Exploration</h3>  
+            <p>Form options here</p>
           </div>
         </div>
       </div>
@@ -71,8 +70,12 @@
           <div class="vis" id="view2">
           </div>
           <div class="flexboxVertical">
-            <h3>IAT344: Interface Design</h3>  
-            <p> A translink bus interface to assist with navigation without the use of a mobile device</p>
+            <h3>Are New Champs Must-Picks?</h3>  
+            <p>Since Worlds 2016, there have been 42 new champions added to League of Legends.
+              However, how often do they appear in Worlds following their release? This tool aims to
+              filter and visualize newer champions playable during their launch year of international
+              competition.
+            </p>
           </div>
         </div>
       </div>
@@ -82,11 +85,16 @@
           <div class="vis" id="view3">
           </div>
           <div class="flexboxVertical">
-            <h3>IAT344: Interface Design</h3>  
-            <p> A translink bus interface to assist with navigation without the use of a mobile device</p>
+            <h3>Do Buffs or Nerfs Matter?</h3>  
+            <p>League of Legends is a constantly changing game. From new champion reworks to item
+              changes, there are many numbers being adjusted in an effort to balance the game. This
+              visualization showcases how balance changes to champions during the World's patch affects 
+              their tournament statistics.
+            </p>
           </div>
         </div>
       </div>
+      <script type="module" src="vis.js"></script>
     </main>
     <footer>
       <p>© 2024 My Webpage | IAT 355</p>
