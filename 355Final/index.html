@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 
     <script>
       const options = {
@@ -53,47 +53,95 @@
     </header>
         
     <main>
-      <div class="container">        
-        <h1>IAT 355 Final Project</h1>
-        <h2>Worlds Champion Data</h2> 
+
+      <img src="../WorldsArena.png" alt="A stadium filled with people" class="heroImg">
+      <h1 class="heroText">How Much Does <br/>Champ Select Matter?</h1> 
+      <h2 class="heroText">An Exploration of Champion Data at <br/> 
+        the League of Legends World Championship</h2>
+
+      <div class="container">  
         <div class="flexboxHorizontal">
-          <div class="vis" id="view1"></div>
-          <div class="flexboxVertical">
-            <h3>An Interactive Tool for Data Exploration</h3>  
-            <p>Form options here</p>
-          </div>
-        </div>
-      </div>
-      <div class="container">        
-        <h2>Are Newer Chapions Always Relevant?</h2> 
-        <div class="flexboxHorizontal">
-          <div class="vis" id="view2">
+          <div class="vis" id="vis1">
+            <img src="WorldsArena.png" alt="A player holding a trophy" class="">
           </div>
           <div class="flexboxVertical">
-            <h3>Are New Champs Must-Picks?</h3>  
-            <p>Since Worlds 2016, there have been 42 new champions added to League of Legends.
-              However, how often do they appear in Worlds following their release? This tool aims to
-              filter and visualize newer champions playable during their launch year of international
-              competition.
-            </p>
+            <h2>What is Worlds?</h2>  
+            <p>Throughout League of Legends Esports scene, Worlds is the penultimate 
+              competitive tournament of the year. This annual tournament brings the best 
+              teams from around the world to compete in a multi-staged gauntlet to crown 
+              a world champion. </p>
+
+            <h2>What are Champions?</h2>
+            <p>Champions are the playable characters League of Legends. Of the 169 champions 
+              in the game, teams draft their champions to ban 5 and select 5 for every match. 
+              These drafts matter since they give you an in-game advantage through strategic 
+              counter-picks or mechanical comfort depending on the player. </p>
+
+            <h2>What is the Goal?</h2>
+            <p>This exploration aims to identify trends and community myths surrounding the 
+              selection of these champions and analyzing some of their performance metrics 
+              across 9 years of Worlds competition. From presence rates to flexing across roles, 
+              there are many different champion statistics to share among the champion data. </p>
           </div>
         </div>
+    </div>
+
+    <div class="container">        
+      <div class="flexboxVertical">
+        
+        <h2>Exploration 1: Are Newer Champions Must-Pick? </h2> 
+        <p>Since Worlds 2016, there have been 36 new champions added to League of Legends. However, 
+          how often do they appear in Worlds following their release? Are they always over-tuned and 
+          must be played? This tool aims to filter and visualize newer champions playable during that 
+          year of international competition.</p>
+        <div class="vis" id="vis1"></div>
       </div>
-      <div class="container">        
-        <h2>How Much do Patch Notes Affect Champions Picked?</h2> 
-        <div class="flexboxHorizontal">
-          <div class="vis" id="view3">
-          </div>
+    </div>
+    <div class="container">        
+      <div class="flexboxVertical">
+        <h2>Exploration 2: How Do Balance Patches Affect Champions Selected? </h2> 
+        <p>League of Legends is a constantly changing game. From new champion reworks to item
+          changes, there are many numbers being adjusted in an effort to balance the game. This
+          visualization showcases how balance changes to champions during the World's patch affects 
+          their tournament statistics.</p>      
+          <div class="vis" id="view2"></div>
+       </div>   
+    </div>
+    <div class="container">        
+      <div class="flexboxVertical">
+        <h2>Exploration 3: Discover Your Own Trends!</h2> 
+        <p>With all of the champion data collected, filter control the visualization and discover your 
+          own Patterns within the Worlds data! How did flexible champions perform across different roles? 
+          Which champions get the most kills / deaths? How well did you favourite champion perform across 
+          the years?</p>
+        <div class="flexboxHorizontal">      
+          <div class="vis" id="view3"></div>
           <div class="flexboxVertical">
-            <h3>Do Buffs or Nerfs Matter?</h3>  
-            <p>League of Legends is a constantly changing game. From new champion reworks to item
-              changes, there are many numbers being adjusted in an effort to balance the game. This
-              visualization showcases how balance changes to champions during the World's patch affects 
-              their tournament statistics.
-            </p>
+            <!-- form options here-->
+            <div class="control-row">
+              <label for="yearSlider">Year:</label>
+              <input type="range" id="yearSlider" min="0" max="0" step="5" value="0"><br>
+
+              <input type="radio" id="roleAll" name="role">
+              <label for="roleAll">All</label>
+              <input type="radio" id="roleTop" name="role">
+              <label for="roleTop">Top</label><br>
+              <input type="radio" id="roleJungle" name="role">
+              <label for="roleJungle">Jungle</label>
+              <input type="radio" id="roleMid" name="role">
+              <label for="roleMid">Mid</label><br>
+              <input type="radio" id="roleBot" name="role">
+              <label for="rolBot">Bot</label>
+              <input type="radio" id="roleSupport" name="role">
+              <label for="roleSupport">Support</label><br>
+            
+            </div>
+        </div>
+            <!-- button here-->
           </div>
         </div>
-      </div>
+       </div>   
+    </div>
       <script type="module" src="vis.js"></script>
     </main>
     <footer>

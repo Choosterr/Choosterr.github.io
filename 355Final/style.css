@@ -2,7 +2,7 @@
   /* Select by class */
   .container {
     font-size: 1rem;
-    font-family: "Urbanist", sans-serif;
+    font-family: "Oswald", sans-serif;
 
     margin: 20px auto;
     padding: 30px 50px;
@@ -12,7 +12,7 @@
   }
 
   .container-nav {
-    background-color: #8a7c6a;
+    background-color: #111111;
     font-size: 1.5rem;
     font-family: "Urbanist", sans-serif;
     margin: auto;
@@ -59,36 +59,17 @@
   .container .navbar {
     justify-content: space-between;
   }
-
-  .container-list {
-    background-color: #8a7c6a;
-    font-size: 1.1rem;
-    font-family: "Urbanist", sans-serif;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-
-    border:2px solid #DEE8FE;
-    border-radius: 10px;
-  }
-
-  .container-list ul li {
-    color:white;
-    padding: 10px;
-    margin: 0 10px;
-  }
   
   /* Select by tag name */
   body{
     background-color: #0E2E6A;
-    font-family: "Urbanist", sans-serif;
+    font-family: "Oswald", sans-serif;
     letter-spacing: 0.5px;
   }
 
   h1,h2,h3 {
-    letter-spacing: 2px;
     color: #DEE8FE;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 
   p, text {
@@ -123,23 +104,37 @@
     justify-content:flex-start;
     padding: 1rem;
     margin: 1rem auto 2rem 2rem;
-
-    border:2px solid #DEE8FE;
-    border-radius: 10px;
   }
 
-  .projectImg {
-    max-width: 400px;
-    border:2px solid #DEE8FE;
-    border-radius: 10px;
-    object-fit: cover;
-    opacity: 0.5;
+  .heroImg{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("WorldsArena.png");
+    filter:brightness(30%);
+    /*height: 50%;*/
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
   }
 
-  .projectImg:hover{
-  opacity: 1;
-  transition: 0.7s;
-}
+  h1.heroText{
+    font-size: 3rem;
+    font-family: "Oswald", sans-serif;
+    position: absolute;
+    top:50%;
+    left:10%;
+    color:white;
+  }
+
+  h2.heroText{
+    font-size: 2rem;
+    font-family: "Oswald", sans-serif;
+    position: absolute;
+    top:80%;
+    left:10%;
+    color:white;
+  }
+
 
   button {
     color: #0E2E6A;
@@ -162,6 +157,6 @@
 
   .vis {
     background-color: white;
-    width: 50%;
+    width: 70%;
     height: 500px;
   }  
