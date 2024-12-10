@@ -22,11 +22,15 @@ let duration = 500;
 
 async function prepareVis() {
   dataset = await d3.csv("../dataset/worldsChampsCombined.csv", d3.autoType);
+
   //filter dataset to a specific year
-  yearDataset = dataset.filter((d) => d.Year === Year);
+  yearDataset = dataset.filter((d) => d.Year === year);
+  //console.log(yearDataset);
   //champion = new Set(yearDataset.map((d) => d.Champion));
   champWinrate = d3.extent(dataset, (d) => d.Winrate);
   champPresence = d3.extent(dataset, (d) => d.Presence);
+
+  console.log(champPresence);
 
   const width = 800;
   const height = 600;
@@ -40,41 +44,70 @@ async function prepareVis() {
     .attr("height", height)
     .style("border", "1px solid black");
 
-  // xScale for
-  xScale = d3.scaleLinear().range([margin.left, width - margin.right]);
-  yScale = d3.scaleLinear().range([height - margin.bottom, margin.top]);
-  //colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
-  xScale.domain(champPresence);
-  yScale.domain(champWinrate);
+  const presenceExtent = d3.extent(yearDataset, (d) => d.Presence);
+  const winrateExtent = d3.extent(yearDataset, (d) => d.Winrate);
+
+  xScale = d3
+    .scaleLinear()
+    .domain([presenceExtent[0] - 1, presenceExtent[1] + 1])
+    .range([margin.left, width - margin.right]);
+
+  yScale = d3
+    .scaleLinear()
+    .domain([winrateExtent[0] - 1, winrateExtent[1] + 1])
+    .range([height - margin.bottom, margin.top]);
+
+
+  // svg = d3
+  //   .select("#vis1")
+  //   .append("svg")
+  //   .attr("width", width)
+  //   .attr("height", height)
+  //   .style("border", "1px solid black");
+
+  // // xScale for
+  // xScale = d3.scaleLinear().range([margin.left, width - margin.right]);
+  // yScale = d3.scaleLinear().range([height - margin.bottom, margin.top]);
+  // //colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+  // xScale.domain(champPresence);
+  // yScale.domain(champWinrate);
   //colorScale.domain(continents);
+
+  const circleRadius = 8;
+  const circleColor = "steelblue";
 
   svg
     .selectAll("circle")
     .data(yearDataset)
     .join("circle")
-    .attr("cx", (d) => {
-      return xScale(d.Presence);
-    })
-    .attr("cy", (d) => {
-      return yScale(d.Winrate);
-    })
-    // .attr("r", (d) => {
-    //   return radiusScale(d.population);
-    // })
-    // .attr("fill", (d) => {
-    //   return colorScale(d.continent);
-    // });
+    .attr("cx", (d) => xScale(d.Presence))
+    .attr("cy", (d) => yScale(d.Winrate))
+    .attr("r", circleRadius)
+    .attr("fill", circleColor)
+    .attr("opacity", 0.7)
 
-  // add x axis
+  // // add x axis
+  // xAxis = svg
+  //   .append("g")
+  //   .attr("transform", `translate(0, ${height - margin.bottom})`);
+  // xAxis.call(d3.axisBottom(xScale));
+  // // add x axis label
+  // // add y axis
+  // yAxis = svg.append("g").attr("transform", `translate(${margin.left}, 0)`);
+  // yAxis.call(d3.axisLeft(yScale));
+
   xAxis = svg
     .append("g")
-    .attr("transform", `translate(0, ${height - margin.bottom})`);
-  xAxis.call(d3.axisBottom(xScale));
-  // add x axis label
-  // add y axis
-  yAxis = svg.append("g").attr("transform", `translate(${margin.left}, 0)`);
-  yAxis.call(d3.axisLeft(yScale));
+    .attr("transform", `translate(0, ${height - margin.bottom})`)
+    .call(d3.axisBottom(xScale));
+
+
+  yAxis = svg
+    .append("g")
+    .attr("transform", `translate(${margin.left}, 0)`)
+    .call(d3.axisLeft(yScale));
 
   // add y axis label and rotate it 90% in place
   svg
@@ -93,27 +126,27 @@ async function prepareVis() {
       `translate(${width / 2}, ${height - margin.bottom + 60})`
     );
 
-  const legendSize = 20;
-  const legendSpacing = 100;
+  //const legendSize = 20;
+  //const legendSpacing = 100;
 
   let i = 0;
-  legend
-    .selectAll("rect")
-    .data(continents)
-    .join("rect")
-    .attr("x", (d, i) => i * legendSpacing)
-    .attr("width", legendSize)
-    .attr("height", legendSize)
-    //.attr("fill", (d) => colorScale(d));
-  legend
-    .selectAll("text")
-    .data(continents)
-    .join("text")
-    .attr("x", (d, i) => i * legendSpacing + legendSize + 5)
-    .attr("y", legendSize)
-    .text((d) => d)
-    .attr("fill", "black")
-    .attr("font-size", "12px");
+  // legend
+  //   .selectAll("rect")
+  //   .data(continents)
+  //   .join("rect")
+  //   .attr("x", (d, i) => i * legendSpacing)
+  //   .attr("width", legendSize)
+  //   .attr("height", legendSize)
+  //   //.attr("fill", (d) => colorScale(d));
+  // legend
+  //   .selectAll("text")
+  //   .data(continents)
+  //   .join("text")
+  //   .attr("x", (d, i) => i * legendSpacing + legendSize + 5)
+  //   .attr("y", legendSize)
+  //   .text((d) => d)
+  //   .attr("fill", "black")
+  //   .attr("font-size", "12px");
 }
 
 async function runApp() {
