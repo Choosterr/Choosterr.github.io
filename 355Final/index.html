@@ -1,103 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>League of Legends Worlds Visualization</title>
+    <!-- D3 -->
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+</head>
 
-    <script>
-      const options = {
-         config: {
-           // Vega-Lite default configuration
-         },
-         init: (view) => {
-           // initialize tooltip handler
-           view.tooltip(new vegaTooltip.Handler().call);
-         },
-         view: {
-           // view constructor options
-           // remove the loader if you don't want to default to vega-datasets!
-           loader: vega.loader({
-             baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
-           }),
-           renderer: "canvas",
-         },
-       };
-       // register vega and vega-lite with the API
-       vl.register(vega, vegaLite, options);
-    </script>
-
-    <title>Nathan Choo - 355 Final</title>
-  </head>
-  <body>
+<body>
     <header>
-      <div class="container-nav">
-        <div class="navbar">
-          <nav>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="visualizations.html">Visualizations</a></li>
-            </ul>
-          </nav>
+        <div class="container-nav">
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#visualizationsSection">Visualizations</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-      </div>
     </header>
-        
+
     <main>
-      <div class="container">        
-        <h1>IAT 355 Final Project</h1>
-        <h2>Worlds Champion Data</h2> 
-        <div class="flexboxHorizontal">
-          <div class="vis" id="view1"></div>
-          <div class="flexboxVertical">
-            <h3>An Interactive Tool for Data Exploration</h3>  
-            <p>Form options here</p>
-          </div>
+        <!-- Hero Section -->
+        <div class="heroSection">
+            <img src="../worldsArena.png" alt="Stadium at Worlds" class="heroImg">
+            <div class="heroOverlay">
+                <h1>How Much Does <br>Champ Select Matter?</h1>
+                <h2>An Exploration of Champion Data at <br>the League of Legends World Championship</h2>
+            </div>
         </div>
-      </div>
-      <div class="container">        
-        <h2>Are Newer Chapions Always Relevant?</h2> 
-        <div class="flexboxHorizontal">
-          <div class="vis" id="view2">
-          </div>
-          <div class="flexboxVertical">
-            <h3>Are New Champs Must-Picks?</h3>  
-            <p>Since Worlds 2016, there have been 42 new champions added to League of Legends.
-              However, how often do they appear in Worlds following their release? This tool aims to
-              filter and visualize newer champions playable during their launch year of international
-              competition.
-            </p>
-          </div>
+
+        <!-- Introduction Section -->
+        <div class="container">
+            <div class="intro-flex">
+                <img src="../worldsTrophy.jpg" alt="A player holding a trophy" class="introImg">
+                <div class="introText">
+                    <h2>What is Worlds?</h2>
+                    <p>Throughout League of Legends Esports scene, Worlds is the penultimate competitive tournament of
+                        the year. This annual tournament brings the best teams from around the world to compete in a
+                        multi-staged gauntlet to crown a world champion.</p>
+
+                    <h2>What are Champions?</h2>
+                    <p>Champions are the playable characters in League of Legends. Of the 169 champions in the game,
+                        teams draft their champions to ban 5 and select 5 for every match. These drafts matter since
+                        they give you an in-game advantage through strategic counter-picks or mechanical comfort
+                        depending on the player.</p>
+
+                    <h2>What is the Goal?</h2>
+                    <p>This exploration aims to identify trends and community myths surrounding the selection of these
+                        champions and analyzing some of their performance metrics across years of Worlds competition.
+                        From presence rates to flexing across roles, there are many different champion statistics to
+                        share among the champion data.</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="container">        
-        <h2>How Much do Patch Notes Affect Champions Picked?</h2> 
-        <div class="flexboxHorizontal">
-          <div class="vis" id="view3">
-          </div>
-          <div class="flexboxVertical">
-            <h3>Do Buffs or Nerfs Matter?</h3>  
-            <p>League of Legends is a constantly changing game. From new champion reworks to item
-              changes, there are many numbers being adjusted in an effort to balance the game. This
-              visualization showcases how balance changes to champions during the World's patch affects 
-              their tournament statistics.
-            </p>
-          </div>
+
+        <div class="visual-separator" id="visualizationsSection"></div>
+
+        <!-- Exploration 1 -->
+        <div class="container">
+            <h2>Exploration 1: Are Newer Champions Must-Pick?</h2>
+            <p>Filter by year and role, and highlight champions using a tokenized search box. Click on suggestions to
+                add them, and use the 'x' to remove.</p>
+
+            <div class="control-row">
+                <label class="control-label">Select Year:</label>
+                <span class="range-label">2016</span>
+                <input type="range" id="yearSlider1" min="2016" max="2024" step="1" value="2024">
+                <span class="range-label">2024</span>
+
+                <br><br>
+                <label class="control-label">Role:</label>
+                <input type="radio" id="roleAll1" name="role1" value="All" checked><label for="roleAll1">All</label>
+                <input type="radio" id="roleTop1" name="role1" value="Top"><label for="roleTop1">Top</label>
+                <input type="radio" id="roleJungle1" name="role1" value="Jungle"><label for="roleJungle1">Jungle</label>
+                <input type="radio" id="roleMid1" name="role1" value="Mid"><label for="roleMid1">Mid</label>
+                <input type="radio" id="roleADC1" name="role1" value="ADC"><label for="roleADC1">ADC</label>
+                <input type="radio" id="roleSupport1" name="role1" value="Support"><label
+                    for="roleSupport1">Support</label>
+                <br><br>
+
+                <label class="control-label">Highlight Champions:</label><br>
+                <div class="tag-container" id="championTagContainer1"></div>
+                <input type="text" id="championTagInput1" placeholder="Type champion name...">
+                <div class="suggestion-box" id="championSuggestionBox1"></div>
+            </div>
+
+            <div class="visContainer">
+                <div class="vis" id="vis_exploration1"></div>
+            </div>
         </div>
-      </div>
-      <script type="module" src="vis.js"></script>
+
+        <div class="visual-separator"></div>
+
+        <!-- Exploration 2 -->
+        <div class="container">
+            <h2>Exploration 2: How Do Balance Patches Affect Champions Selected?</h2>
+            <p>Same highlighting feature as above. Add or remove highlighted champions at will.</p>
+
+            <div class="control-row">
+                <label class="control-label">Select Year:</label>
+                <span class="range-label">2016</span>
+                <input type="range" id="yearSlider2" min="2016" max="2024" step="1" value="2024">
+                <span class="range-label">2024</span>
+
+                <br><br>
+                <label class="control-label">Role:</label>
+                <input type="radio" id="roleAll2" name="role2" value="All" checked><label for="roleAll2">All</label>
+                <input type="radio" id="roleTop2" name="role2" value="Top"><label for="roleTop2">Top</label>
+                <input type="radio" id="roleJungle2" name="role2" value="Jungle"><label for="roleJungle2">Jungle</label>
+                <input type="radio" id="roleMid2" name="role2" value="Mid"><label for="roleMid2">Mid</label>
+                <input type="radio" id="roleADC2" name="role2" value="ADC"><label for="roleADC2">ADC</label>
+                <input type="radio" id="roleSupport2" name="role2" value="Support"><label
+                    for="roleSupport2">Support</label>
+                <br><br>
+
+                <label class="control-label">Highlight Champions:</label><br>
+                <div class="tag-container" id="championTagContainer2"></div>
+                <input type="text" id="championTagInput2" placeholder="Type champion name...">
+                <div class="suggestion-box" id="championSuggestionBox2"></div>
+            </div>
+
+            <div class="visContainer">
+                <div class="vis" id="vis_exploration2"></div>
+            </div>
+        </div>
+
+        <div class="visual-separator"></div>
+
+        <!-- Exploration 3 -->
+        <div class="container">
+            <h2>Exploration 3: Discover Your Own Trends!</h2>
+            <p>Now the metric selected filters champions by a threshold. Select Presence or Winrate and move the slider
+                to show only champions above that threshold. Search a champion by name to filter further.</p>
+
+            <div class="flexboxHorizontal">
+                <div class="visContainer">
+                    <div class="vis" id="vis_exploration3"></div>
+                </div>
+                <div class="controls-box">
+                    <h3>Filter Options</h3>
+                    <label class="control-label">Year:</label><br>
+                    <span class="range-label">2016</span>
+                    <input type="range" id="yearSlider3" min="2016" max="2024" step="1" value="2024">
+                    <span class="range-label">2024</span>
+                    <br><br>
+
+                    <label class="control-label">Metric Filter:</label><br>
+                    <select id="metricSelector3">
+                        <option value="Presence">Presence ≥</option>
+                        <option value="Winrate">Winrate ≥</option>
+                    </select>
+                    <input type="range" id="metricThreshold3" min="0" max="100" step="1" value="0">
+                    <span id="metricThresholdValue3">0</span>%
+                    <br><br>
+
+                    <label class="control-label">Role:</label><br>
+                    <input type="radio" id="roleAll3" name="role3" value="All" checked><label for="roleAll3">All</label>
+                    <input type="radio" id="roleTop3" name="role3" value="Top"><label for="roleTop3">Top</label>
+                    <input type="radio" id="roleJungle3" name="role3" value="Jungle"><label
+                        for="roleJungle3">Jungle</label>
+                    <input type="radio" id="roleMid3" name="role3" value="Mid"><label for="roleMid3">Mid</label>
+                    <input type="radio" id="roleADC3" name="role3" value="ADC"><label for="roleADC3">ADC</label>
+                    <input type="radio" id="roleSupport3" name="role3" value="Support"><label
+                        for="roleSupport3">Support</label>
+                    <br><br>
+
+                    <label class="control-label">Champion Search:</label><br>
+                    <input type="text" id="championInput3" list="championDatalist3" placeholder="Enter Champion Name">
+                    <datalist id="championDatalist3"></datalist>
+                    <br><br>
+                    <button id="visualizeBtn3">Visualize</button>
+                    <button id="resetBtn3">Reset</button>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer>
-      <p>© 2024 My Webpage | IAT 355</p>
-    </footer>
-  </body>
+
+    <script type="module" src="vis.js"></script>
+</body>
+
 </html>
