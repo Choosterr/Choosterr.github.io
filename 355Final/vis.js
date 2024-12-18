@@ -249,6 +249,27 @@ function createScatterVis(containerID, yearSliderID, roleRadioName, visualizeBtn
         }else if(selectedYear === 2016){
             highlightChampsVis1 = ["Kindred", "Illaoi", "Jhin", "Aurelion Sol", "Taliyah", "Kled"];
         }
+
+        highlightChampsVis2 = []; //highlight buffed champions
+        if (selectedYear === 2024){
+            highlightChampsVis2 = ["Ahri", "Gnar", "Hwei", "Jarvan", "Jax", "Jayce", "Jinx", "Lulu", "Malphite", "Samira", "Shen", "Viego", "Xin Zhao"];
+        }else if(selectedYear === 2023){
+            highlightChampsVis2 = ["Galio", "Gangplank", "Jhin", "Lee Sin", "Lissandra", "Nunu", "Pyke", "Syndra", "Twitch"];     
+        }else if(selectedYear === 2022){
+            highlightChampsVis2 = ["Ashe", "Lee Sin", "Thesh"];
+        }else if(selectedYear === 2021){
+            highlightChampsVis2 = ["Aatrox", "Akali", "Chogath", "Fizz", "Galio", "Gragas", "Gwen", "Mordekaiser", "Poppy", "Qiyana", "Renekton", "Sejuani", "Seraphine", "Sion", "Sylas"];
+        }else if(selectedYear === 2020){
+            highlightChampsVis2 = ["Ahri", "Aphelios", "Irelia", "Ivern", "Sivir", "Sylas", "Udyr", "Vayne"];
+        }else if(selectedYear === 2019){
+            highlightChampsVis2 = ["Aatrox", "Akali", "Annie", "Ashe", "Blitzcrank", "Fiora", "Graves", "Heimerdinger", "Karma", "Mordekaiser", "Oriana", "Ornn", "RekSai", "Riven", "Sion", "Twisted Fate", "Vayne", "Veigar", "Xin Zhao", "Zac"];
+        }else if(selectedYear === 2018){
+            highlightChampsVis2 = ["Darius", "Fiora", "KhaZix", "Elise", "Jarvan", "Nunu", "Janna", "Thresh", "Pyke", "Tahm Kench", "KogMaw"];
+        }else if(selectedYear === 2017){
+            highlightChampsVis2 = ["Azir", "Cassiopeia", "Fiora", "Ivern", "Lee Sin", "Nautilus", "Nidalee", "Ornn", "Rengar", "Ryze", "Rumble"];
+        }else if(selectedYear === 2016){
+            highlightChampsVis2 = ["Lulu", "Lux", "Miss Fortune", "Nocturne", "Ryze"];
+        }
         
 
         const filteredData = data.filter(d => applyFilters(d, selectedYear, selectedRole, highlightChamps));

@@ -19,7 +19,9 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#visualizationsSection">Visualizations</a></li>
+                        <li><a href="#visualizationsSection1">Visualization 1</a></li>
+                        <li><a href="#visualizationsSection2">Visualization 2</a></li>
+                        <li><a href="#visualizationsSection3">Visualization 3</a></li>
                     </ul>
                 </nav>
             </div>
@@ -39,7 +41,9 @@
         <!-- Introduction Section -->
         <div class="container">
             <div class="intro-flex">
-                <img src="../worldsTrophy.jpg" alt="A player holding a trophy" class="introImg">
+                <div>
+                    <img src="../worldsTrophy.jpg" alt="A player holding a trophy" class="introImg">
+                </div>
                 <div class="introText">
                     <h2>What is Worlds?</h2>
                     <p>Throughout the League of Legends Esports scene, Worlds is the penultimate competitive tournament of
@@ -61,7 +65,7 @@
             </div>
         </div>
 
-        <div class="visual-separator" id="visualizationsSection"></div>
+        <div class="visual-separator" id="visualizationsSection1"></div>
 
         <!-- Exploration 1 -->
         <div class="container">
@@ -73,35 +77,37 @@
             <p>Filter by year and role, and highlight champions using a tokenized search box. Click on suggestions to
                 add them, and use the 'x' to remove.</p>
 
-            <div class="control-row">
-                <label class="control-label">Select Year:</label>
-                <span class="range-label">2016</span>
-                <input type="range" id="yearSlider1" min="2016" max="2024" step="1" value="2024">
-                <span class="range-label">2024</span>
+            <div class="flexboxHorizontal">
+                <div class="visContainer">
+                    <div class="vis" id="vis_exploration1"></div>
+                </div>
 
-                <br><br>
-                <label class="control-label">Role:</label>
-                <input type="radio" id="roleAll1" name="role1" value="All" checked><label for="roleAll1">All</label>
-                <input type="radio" id="roleTop1" name="role1" value="Top"><label for="roleTop1">Top</label>
-                <input type="radio" id="roleJungle1" name="role1" value="Jungle"><label for="roleJungle1">Jungle</label>
-                <input type="radio" id="roleMid1" name="role1" value="Mid"><label for="roleMid1">Mid</label>
-                <input type="radio" id="roleADC1" name="role1" value="ADC"><label for="roleADC1">ADC</label>
-                <input type="radio" id="roleSupport1" name="role1" value="Support"><label
-                    for="roleSupport1">Support</label>
-                <br><br>
+                <div class="control-row">
+                    <label class="control-label">Select Year:</label>
+                    <span class="range-label">2016</span>
+                    <input type="range" id="yearSlider1" min="2016" max="2024" step="1" value="2024">
+                    <span class="range-label">2024</span>
 
-                <label class="control-label">Highlight Champions:</label><br>
-                <div class="tag-container" id="championTagContainer1"></div>
-                <input type="text" id="championTagInput1" placeholder="Type champion name...">
-                <div class="suggestion-box" id="championSuggestionBox1"></div>
-            </div>
+                    <br><br>
+                    <label class="control-label">Role:</label>
+                    <input type="radio" id="roleAll1" name="role1" value="All" checked><label for="roleAll1">All</label>
+                    <input type="radio" id="roleTop1" name="role1" value="Top"><label for="roleTop1">Top</label>
+                    <input type="radio" id="roleJungle1" name="role1" value="Jungle"><label for="roleJungle1">Jungle</label>
+                    <input type="radio" id="roleMid1" name="role1" value="Mid"><label for="roleMid1">Mid</label>
+                    <input type="radio" id="roleBot1" name="role1" value="Bot"><label for="roleBot1">Bot</label>
+                    <input type="radio" id="roleSupport1" name="role1" value="Support"><label
+                        for="roleSupport1">Support</label>
+                    <br><br>
 
-            <div class="visContainer">
-                <div class="vis" id="vis_exploration1"></div>
+                    <label class="control-label">Highlight Champions:</label><br>
+                    <div class="tag-container" id="championTagContainer1"></div>
+                    <input type="text" id="championTagInput1" placeholder="Type champion name...">
+                    <div class="suggestion-box" id="championSuggestionBox1"></div>
+                </div>
             </div>
         </div>
 
-        <div class="visual-separator"></div>
+        <div class="visual-separator" id="visualizationsSection2"></div>
 
         <!-- Exploration 2 -->
         <div class="container">
@@ -112,35 +118,37 @@
                 their tournament statistics.</p>     
             <p>Same highlighting feature as above. Add or remove highlighted champions at will.</p>
 
-            <div class="control-row">
-                <label class="control-label">Select Year:</label>
-                <span class="range-label">2016</span>
-                <input type="range" id="yearSlider2" min="2016" max="2024" step="1" value="2024">
-                <span class="range-label">2024</span>
+            <div class="flexboxHorizontal">
+                <div class="visContainer">
+                    <div class="vis" id="vis_exploration2"></div>
+                </div>
 
-                <br><br>
-                <label class="control-label">Role:</label>
-                <input type="radio" id="roleAll2" name="role2" value="All" checked><label for="roleAll2">All</label>
-                <input type="radio" id="roleTop2" name="role2" value="Top"><label for="roleTop2">Top</label>
-                <input type="radio" id="roleJungle2" name="role2" value="Jungle"><label for="roleJungle2">Jungle</label>
-                <input type="radio" id="roleMid2" name="role2" value="Mid"><label for="roleMid2">Mid</label>
-                <input type="radio" id="roleADC2" name="role2" value="ADC"><label for="roleADC2">ADC</label>
-                <input type="radio" id="roleSupport2" name="role2" value="Support"><label
-                    for="roleSupport2">Support</label>
-                <br><br>
+                <div class="control-row">
+                    <label class="control-label">Select Year:</label>
+                    <span class="range-label">2016</span>
+                    <input type="range" id="yearSlider2" min="2016" max="2024" step="1" value="2024">
+                    <span class="range-label">2024</span>
 
-                <label class="control-label">Highlight Champions:</label><br>
-                <div class="tag-container" id="championTagContainer2"></div>
-                <input type="text" id="championTagInput2" placeholder="Type champion name...">
-                <div class="suggestion-box" id="championSuggestionBox2"></div>
-            </div>
+                    <br><br>
+                    <label class="control-label">Role:</label>
+                    <input type="radio" id="roleAll2" name="role2" value="All" checked><label for="roleAll2">All</label>
+                    <input type="radio" id="roleTop2" name="role2" value="Top"><label for="roleTop2">Top</label>
+                    <input type="radio" id="roleJungle2" name="role2" value="Jungle"><label for="roleJungle2">Jungle</label>
+                    <input type="radio" id="roleMid2" name="role2" value="Mid"><label for="roleMid2">Mid</label>
+                    <input type="radio" id="roleBot2" name="role2" value="Bot"><label for="roleBot2">Bot</label>
+                    <input type="radio" id="roleSupport2" name="role2" value="Support"><label
+                        for="roleSupport2">Support</label>
+                    <br><br>
 
-            <div class="visContainer">
-                <div class="vis" id="vis_exploration2"></div>
+                    <label class="control-label">Highlight Champions:</label><br>
+                    <div class="tag-container" id="championTagContainer2"></div>
+                    <input type="text" id="championTagInput2" placeholder="Type champion name...">
+                    <div class="suggestion-box" id="championSuggestionBox2"></div>
+                </div>
             </div>
         </div>
 
-        <div class="visual-separator"></div>
+        <div class="visual-separator" id="visualizationsSection3"></div>
 
         <!-- Exploration 3 -->
         <div class="container">
@@ -179,7 +187,7 @@
                     <input type="radio" id="roleJungle3" name="role3" value="Jungle"><label
                         for="roleJungle3">Jungle</label>
                     <input type="radio" id="roleMid3" name="role3" value="Mid"><label for="roleMid3">Mid</label>
-                    <input type="radio" id="roleADC3" name="role3" value="ADC"><label for="roleADC3">ADC</label>
+                    <input type="radio" id="roleBot3" name="role3" value="Bot"><label for="roleBot3">Bot</label>
                     <input type="radio" id="roleSupport3" name="role3" value="Support"><label
                         for="roleSupport3">Support</label>
                     <br><br>

@@ -10,6 +10,8 @@ body {
 .container-nav {
     background-color: #111111;
     text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 .navbar ul {
@@ -17,6 +19,8 @@ body {
     margin: 0;
     padding: 0;
     display: inline-flex;
+    position: sticky;
+    top: 0;
 }
 
 .navbar li {
@@ -84,7 +88,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: space-evenly;
 }
 
 .introImg {
@@ -128,13 +132,13 @@ label,
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 /* Visualization Container */
 .visContainer {
     position: relative;
-    width: 100%;
+    width: 60%;
     margin-top: 20px;
 }
 
@@ -153,7 +157,7 @@ label,
 .control-row label {
     margin-right: 10px;
     font-weight: bold;
-    color: #DEE8FE;
+    color: #FFFFFF;
 }
 
 .range-label {
@@ -173,7 +177,7 @@ select {
     border: none;
     padding: 5px;
     border-radius: 5px;
-    color: #0E2E6A;
+    color: #0A1428;
     font-weight: bold;
     margin-top: 5px;
 }
@@ -187,7 +191,7 @@ input[type=radio]+label {
 }
 
 button {
-    color: #0E2E6A;
+    color: #0A1428;
     background-color: white;
     font-weight: bold;
     padding: 0.5rem 1rem;
@@ -208,7 +212,7 @@ button:hover {
     font-size: 14px;
     pointer-events: none;
     color: #0E2E6A;
-    background: #DEE8FE;
+    background: #FFFFFF;
     border: 1px solid #333;
     border-radius: 5px;
     padding: 5px;
@@ -221,17 +225,17 @@ button:hover {
 
 /* Controls Box */
 .controls-box {
-    background-color: #0E2E6A;
+    background-color: #0A1428;
     border: 2px solid #C5AA6C;
     border-radius: 10px;
     padding: 20px;
-    width: 250px;
+    width: 260px;
     max-height: 500px;
     margin-top: 20px;
 }
 
 .controls-box h3 {
-    color: #DEE8FE;
+    color: #FFFFFF;
     margin-bottom: 20px;
 }
 
@@ -240,6 +244,7 @@ button:hover {
     flex-wrap: wrap;
     gap: 5px;
     margin-bottom: 10px;
+    max-width: 50%;
 }
 
 .tag {
@@ -308,6 +313,9 @@ footer {
 
     .flexboxHorizontal {
         flex-direction: column;
+    }
+    .visContainer {
+        width: 100%;
     }
 }
 
